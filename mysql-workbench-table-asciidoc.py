@@ -40,7 +40,7 @@ def generate_asciidoc_schema_documentation(diagram):
     mforms.App.get().set_status_text(
         "The generated documentation is copied to the clipboard. Paste it to use. ")
 
-    print "The generated documentation is copied to the clipboard."
+    print("The generated documentation is copied to the clipboard.")
 
     return 0
 
@@ -121,17 +121,17 @@ def generate_table_description(column, fks):
     """
     description = column.comment
 
-    get_fk_description = lambda x: '\n'.join([
-                fk_description, '* Foreign key to {0} on table {1}.'.format(
-                    fk.referencedColumns[0].name,
-                    fk.referencedColumns[0].owner.name)
-            ])
+    # get_fk_description = lambda x: '\n'.join([
+    #             fk_description, '* Foreign key to {0} on table {1}.'.format(
+    #                 fk.referencedColumns[0].name,
+    #                 fk.referencedColumns[0].owner.name)
+    #         ])
 
-    descriptions = [get_fk_description(fk) for fk in fks if fk.columns[0].name == column.name]
-    fk_description = '\n'.join(descriptions)
+    # descriptions = [get_fk_description(fk) for fk in fks if fk.columns[0].name == column.name]
+    # fk_description = '\n'.join(descriptions)
 
-    if (fk_description != ''):
-        description = '\n'.join([description, fk_description])
+    # if (fk_description != ''):
+    #     description = '\n'.join([description, fk_description])
 
     return description
 
